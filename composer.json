@@ -1,0 +1,17 @@
+{
+    "name": "sokil/cqrs-labs",
+    "require": {
+        "phpspec/prophecy": "^1.8",
+        "codeception/codeception": "^3.0",
+        "broadway/broadway": "y"
+    },
+    "require-dev": {
+        "broadway/broadway": "^2.1"
+    },
+    "authors": [
+        {
+            "name": "Dmytro Sokil",
+            "email": "dmytro.sokil@gmail.com"
+        }
+    ]
+}
