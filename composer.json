@@ -3,7 +3,8 @@
     "require": {
         "phpspec/prophecy": "^1.8",
         "codeception/codeception": "^3.0",
-        "broadway/broadway": "y"
+        "broadway/broadway": "y",
+        "prooph/common": "^4.3.0"
     },
     "require-dev": {
         "broadway/broadway": "^2.1"
