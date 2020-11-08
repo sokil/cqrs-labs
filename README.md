@@ -5,6 +5,7 @@
 ### Tutorials
 
 * https://pilsniak.com/cqrs-es-php-prooph/
+* [Domain Events](https://verraes.net/2014/11/domain-events/)
 
 ### Videos
 
