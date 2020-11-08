@@ -1,18 +1,27 @@
 {
     "name": "sokil/cqrs-labs",
     "require": {
+        "php": "^7.4",
+        "ext-json": "*",
         "phpspec/prophecy": "^1.8",
         "codeception/codeception": "^3.0",
-        "broadway/broadway": "y",
-        "prooph/common": "^4.3.0"
-    },
-    "require-dev": {
-        "broadway/broadway": "^2.1"
+        "broadway/broadway": "^2.1",
+        "prooph/common": "^4.4",
+        "prooph/event-sourcing": "^5.6",
+        "marc-mabe/php-enum": "^4.4",
+        "vimeo/psalm": "^4.1",
+        "ramsey/uuid": "^4.1"
     },
     "authors": [
         {
             "name": "Dmytro Sokil",
             "email": "dmytro.sokil@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "CqrsLabs\\Prooph\\": "src/Prooph/",
+            "CqrsLabs\\Broadway\\": "src/Broadway/"
+        }
+    }
 }
