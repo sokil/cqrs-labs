@@ -2,6 +2,10 @@
 
 ## Resources
 
+### Tutorials
+
+* https://pilsniak.com/cqrs-es-php-prooph/
+
 ### Videos
 
 * https://www.youtube.com/watch?v=JHGkaShoyNs&feature=youtu.be
