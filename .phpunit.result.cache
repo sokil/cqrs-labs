@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":180:{a:2:{s:7:"defects";a:1:{s:54:"CqrsLabs\Prooph\Aggregate\BalanceTest::testInitBalance";i:4;}s:5:"times";a:1:{s:54:"CqrsLabs\Prooph\Aggregate\BalanceTest::testInitBalance";d:0.015;}}}

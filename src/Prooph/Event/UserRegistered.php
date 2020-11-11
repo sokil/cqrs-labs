@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace CqrsLabs\Prooph\Event;
 
-use CqrsLabs\Prooph\ValueObject\CreditsAmount;
-use CqrsLabs\Prooph\ValueObject\BalanceOperationId;
-use CqrsLabs\Prooph\ValueObject\BalanceOperationType;
 use CqrsLabs\Prooph\ValueObject\UserId;
 use Prooph\EventSourcing\AggregateChanged;
 
@@ -21,7 +18,7 @@ class UserRegistered extends AggregateChanged
     {
         parent::setPayload($payload);
 
-        $this->userId = new UserId($payload['userId']);
+        $this->userId = UserId::fromString($payload['userId']);
     }
 
     public function payload(): array

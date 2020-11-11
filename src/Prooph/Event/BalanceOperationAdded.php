@@ -27,8 +27,8 @@ class BalanceOperationAdded extends AggregateChanged
     {
         parent::setPayload($payload);
 
-        $this->userId = new UserId($payload['userId']);
         $this->operationId = new BalanceOperationId($payload['operationId']);
+        $this->userId = UserId::fromString($payload['userId']);
         $this->type = BalanceOperationType::byValue($payload['type']);
         $this->amount = new CreditsAmount($payload['amount']);
     }

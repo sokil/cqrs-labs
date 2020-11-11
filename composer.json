@@ -23,5 +23,11 @@
             "CqrsLabs\\Prooph\\": "src/Prooph/",
             "CqrsLabs\\Broadway\\": "src/Broadway/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CqrsLabs\\Prooph\\": "tests/Prooph/",
+            "CqrsLabs\\Broadway\\": "tests/Broadway/"
+        }
     }
 }

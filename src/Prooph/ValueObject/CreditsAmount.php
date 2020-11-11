@@ -10,8 +10,8 @@ class CreditsAmount
 
     public function __construct(int $amount)
     {
-        if ($amount <= 0) {
-            throw new \InvalidArgumentException('Id must be positive int');
+        if ($amount < 0) {
+            throw new \InvalidArgumentException('Id must be non-negative int');
         }
 
         $this->amount = $amount;

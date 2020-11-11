@@ -34,7 +34,7 @@ class AddBalanceOperation extends Command
      */
     protected function setPayload(array $payload): void
     {
-        $this->userId = new UserId($payload['userId']);
+        $this->userId = UserId::fromString($payload['userId']);
         $this->type = BalanceOperationType::byValue($payload['type']);
         $this->amount = new CreditsAmount($payload['amount']);
     }
