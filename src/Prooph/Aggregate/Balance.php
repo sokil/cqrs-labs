@@ -19,6 +19,11 @@ class Balance extends AggregateRoot
 
     private CreditsAmount $amount;
 
+    /**
+     * @var BalanceOperationId[]
+     */
+    private $operationIds = [];
+
     public static function initialiseBalance(UserId $userId): Balance
     {
         $balance = new static();
@@ -64,18 +69,34 @@ class Balance extends AggregateRoot
             $this->userId = $event->getUserId();
             $this->amount = new CreditsAmount(0);
         } elseif ($event instanceof BalanceOperationAdded) {
-            // check that operation already applied
-            // todo...
-
-            // check for decrease operations than credits present on balance
-            // todo...
-
-            // apply operation
+            // check that balance is initialised
             if (empty($this->userId)) {
                 throw new \Logicexception('Balance is not initialised');
             }
 
-            $this->amount = $this->amount->add($event->getAmount());
+            // check that operation already applied
+            if (!empty($this->operationIds[$event->getOperationId()->getIntValue()])) {
+                throw new \LogicException('Operation added twice');
+            }
+
+
+            // apply operation
+            if ($event->getType()->getValue() === BalanceOperationType::REMOVE_CREDITS) {
+                // check than credits present on balance
+                if ($this->amount->getIntValue() < $event->getAmount()->getIntValue()) {
+                    throw new \LogicException('Not enough credits on balance to decrease');
+                }
+
+                // decrease credits
+                $this->amount = $this->amount->subtract($event->getAmount());
+            } elseif ($event->getType()->getValue() === BalanceOperationType::ADD_CREDITS) {
+                $this->amount = $this->amount->add($event->getAmount());
+            } else {
+                throw new \LogicException(sprintf('Unknown operation type %s', $event->getType()->getName()));
+            }
+
+            // mark that operation already applied
+            $this->operationIds[$event->getOperationId()->getIntValue()] = true;
         } else {
             throw new \InvalidArgumentException('Event not acceptable');
         }

@@ -37,6 +37,7 @@ class BalanceTest extends AbstractTestCase
     public function testChangeBalance()
     {
         $userId = UserId::generate();
+        $creditsAmountToAdd = new CreditsAmount(5);
 
         $balance = Balance::initialiseBalance($userId);
 
@@ -45,5 +46,7 @@ class BalanceTest extends AbstractTestCase
             BalanceOperationType::ADD_CREDITS(),
             new CreditsAmount(5)
         );
+
+        $this->assertSame($creditsAmountToAdd->getIntValue(), $balance->getAmount()->getIntValue());
     }
 }

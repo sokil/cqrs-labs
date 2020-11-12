@@ -26,4 +26,9 @@ class CreditsAmount
     {
         return new CreditsAmount($this->getIntValue() + $amount->getIntValue());
     }
+
+    public function subtract(CreditsAmount $amount): CreditsAmount
+    {
+        return new CreditsAmount($this->getIntValue() - $amount->getIntValue());
+    }
 }
