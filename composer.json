@@ -10,7 +10,8 @@
         "prooph/event-sourcing": "^5.6",
         "marc-mabe/php-enum": "^4.4",
         "vimeo/psalm": "^4.1",
-        "ramsey/uuid": "^4.1"
+        "ramsey/uuid": "^4.1",
+        "prooph/service-bus": "^6.2"
     },
     "authors": [
         {
