@@ -8,11 +8,7 @@ use CqrsLabs\Prooph\ValueObject\CreditsAmount;
 use CqrsLabs\Prooph\ValueObject\BalanceOperationType;
 use CqrsLabs\Prooph\ValueObject\UserId;
 use Prooph\Common\Messaging\Command;
-use Ramsey\Uuid\Uuid;
 
-/**
- * @psalm-immutable
- */
 class AddBalanceOperation extends Command
 {
     private UserId $userId;
@@ -21,11 +17,9 @@ class AddBalanceOperation extends Command
 
     private CreditsAmount $amount;
 
-    /**
-     * @param array $payload
-     */
-    public function __construct(array $payload)
+    public function __construct(array $payload = [])
     {
+        $this->init();
         $this->setPayload($payload);
     }
 
@@ -46,5 +40,29 @@ class AddBalanceOperation extends Command
             'type' => $this->type->getValue(),
             'amount' => $this->amount->getIntValue(),
         ];
+    }
+
+    /**
+     * @return UserId
+     */
+    public function getUserId(): UserId
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @return BalanceOperationType
+     */
+    public function getType(): BalanceOperationType
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return CreditsAmount
+     */
+    public function getAmount(): CreditsAmount
+    {
+        return $this->amount;
     }
 }
