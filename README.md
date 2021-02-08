@@ -17,9 +17,12 @@
 
 ### Libs
 
-* Broadway
-  * https://github.com/broadway/broadway
-* proops
-  * http://getprooph.org/
-  * https://github.com/prooph
+* Event sourcing
+  * Broadway
+    * https://github.com/broadway/broadway
+  * proops
+    * http://getprooph.org/
+    * https://github.com/prooph
+* Command bus
+  * http://docs.simplebus.io/en/latest/Guides/asynchronous-example.html
 
